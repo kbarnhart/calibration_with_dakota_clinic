@@ -1,0 +1,31 @@
+# what is calibration/optimization/parameter estimation.
+
+# gradient based vs not
+# complex model vs statistical surogate
+
+# introduction to the model we will use
+diffusion of heat + fitting Clow paper data.
+
+# model A = thermal diffusion
+# model B = temperature history of the surface
+# OF = RMSE fit of temperatures
+
+
+* pre run (fill in the {{values}}
+* run
+* post run, make a plot with plotnine/pandas
+
+Step 1: Brute force grid search
+
+- introduction to the input file. 
+- introduction to the model driver
+- introduction to the file structure. 
+
+Step 2: Gradient based method
+
+- we just change the METHOD!!!!!
+
+Step 3: EGO 
+
+If time: on our own we will explore other methods, make the surface temperature model more complex, etc. 
+
