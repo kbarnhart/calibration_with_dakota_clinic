@@ -4,7 +4,7 @@ import numpy as np
 import yaml
 
 
-def solve_1d(temp, spacing, k=1e3, kappa=1.0, Qm=50, time_step=1.0):
+def solve_1d(temp, spacing, k=2e3, kappa=1e-6, Qm=0.05, time_step=1.0):
     """Solve the 1D Heat Equation in a column.
 
     Parameters
@@ -13,8 +13,12 @@ def solve_1d(temp, spacing, k=1e3, kappa=1.0, Qm=50, time_step=1.0):
         Temperature.
     spacing : array_like
         Grid spacing in the row and column directions.
-    alpha : float (optional)
-        Thermal diffusivity.
+    k : float, optional
+        Thermal conductivity. Default is 2e3.
+    kappa : float, optional
+        Thermal diffusivity. Default is 1e-6.
+    Qm : float, optional
+        Heat flux. Default is 0.05.
     time_step : float (optional)
         Time step.
 
@@ -25,8 +29,18 @@ def solve_1d(temp, spacing, k=1e3, kappa=1.0, Qm=50, time_step=1.0):
 
     Examples
     --------
+    >>> import numpy as np
     >>> from heat import solve_1d
-
+    >>> spacing = [100]
+    >>> dTdz = 0.01
+    >>> temp = dTdz * np.arange(0, 1000, spacing[0])
+    >>> temp
+    array([0., 1., 2., 3., 4., 5., 6., 7., 8., 9.])
+    >>> for i in range(10*365):
+    ...     temp = solve_1d(temp, spacing, time_step=24*60*60)
+    >>> temp
+    array([0.        , 1.        , 2.        , 3.        , 4.        ,
+           5.        , 5.99999996, 6.99999499, 7.99951939, 8.9690285 ])
     """
     Q = np.zeros_like(temp)
     dTdz = np.diff(temp) / spacing[0]
@@ -50,20 +64,20 @@ class Heat(object):
     >>> heat.time
     0.0
     >>> heat.time_step
-    0.25
+    250000.0
     >>> heat.advance_in_time()
     >>> heat.time
-    0.25
+    250000.0
 
     >>> heat = Heat(shape=(5,))
     >>> heat.temperature = np.zeros_like(heat.temperature)
     >>> heat.temperature[2] = 1.
     >>> heat.advance_in_time()
 
-    >>> heat = Heat(alpha=.5)
+    >>> heat = Heat(kappa=.5)
     >>> heat.time_step
     0.5
-    >>> heat = Heat(alpha=.5, spacing=(2.,))
+    >>> heat = Heat(kappa=.5, spacing=(2.,))
     >>> heat.time_step
     2.0
     """
@@ -73,9 +87,9 @@ class Heat(object):
         shape=(110,),
         spacing=(1.0,),
         origin=(0.0,),
-        kappa=1.0,
-        k=2000,
-        Qm=50,
+        kappa=1e-6,
+        k=2e3,
+        Qm=0.05,
 
     ):
         """Create a new heat model.
@@ -88,8 +102,12 @@ class Heat(object):
             Spacing of grid rows and columns.
         origin : array_like, optional
             Coordinates of lower left corner of grid.
-        alpha : float
-            Alpha parameter in the heat equation.
+        k : float, optional
+            Thermal conductivity. Default is 2e3.
+        kappa : float, optional
+            Thermal diffusivity. Default is 1e-6.
+        Qm : float, optional
+            Heat flux. Default is 0.05.
         """
         self._shape = shape
         self._spacing = spacing
