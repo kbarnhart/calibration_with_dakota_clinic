@@ -1,0 +1,40 @@
+language: generic
+os:
+- linux
+- osx
+env:
+  matrix:
+  - CONDA_ENV=3.7
+  - CONDA_ENV=3.6
+  - CONDA_ENV=2.7
+  global:
+  - MPLBACKEND=Agg
+sudo: false
+before_install:
+- |
+  if [[ $TRAVIS_OS_NAME == "osx" ]]; then
+    brew remove --force $(brew list)
+    brew cleanup -s
+    rm -rf $(brew --cache)
+  fi
+- |
+  mkdir -p $HOME/.matplotlib
+  echo "backend: Agg" > $HOME/.matplotlib/matplotlibrc
+- |
+  if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+    curl https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh > $HOME/miniconda.sh
+  else
+    curl https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh > $HOME/miniconda.sh
+  fi
+- bash $HOME/miniconda.sh -b -p $HOME/anaconda
+- export PATH="$HOME/anaconda/bin:$PATH"
+- hash -r
+- conda config --set always_yes yes --set changeps1 no
+- conda env create -f environment.yaml python=$CONDA_ENV
+- conda activate dakota_clinic
+install:
+- cd heat
+- make install
+script:
+- pip install pytest
+- pytest heat/ --doctest-modules
