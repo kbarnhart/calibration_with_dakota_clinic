@@ -1,0 +1,19 @@
+
+name: dakota_clinic
+channels:
+  - conda-forge
+  - csdms-stack
+dependencies:
+- python=3.6
+- openmpi=1.6
+- dakota
+- numpy
+- pandas
+- matplotlib
+- pytest
+- pyyaml
+- scipy
+- scikit-learn
+- yaml
+- pip:
+  - bmipy

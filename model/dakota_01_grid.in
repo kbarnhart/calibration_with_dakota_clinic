@@ -1,0 +1,36 @@
+# Dakota input file
+environment
+  tabular_data
+    tabular_data_file "dakota_01_grid.dat"
+
+method
+  multidim_parameter_study
+  partitions 31
+
+variables
+  continuous_design 2
+    descriptors "T" "duration_years"
+    upper_bounds 2 120
+    lower_bounds -10 20
+
+interface
+  fork
+
+  work_directory
+    named "GRID_SEARCH/run"
+    directory_tag
+    directory_save
+    file_save
+
+    parameters_file "params.in"
+    results_file "results.out"
+    copy_files "input_template.yml" "driver.py" "run_preprocessing.sh" "AWU_12AUG07.txt"
+
+  input_filter "source run_preprocessing.sh"
+  analysis_driver "python driver.py"
+
+responses
+  calibration_terms 1
+  response_descriptors "rmse"
+  no_gradients
+  no_hessians
