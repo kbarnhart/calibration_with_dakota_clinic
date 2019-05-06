@@ -1,0 +1,13 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+*.egg-info/
+
+# Dakota output files
+*.log
+*.dat
+*.rst
+*.out
+
+# Dakota output filestructures. 
+model/GRID_SEARCH/
