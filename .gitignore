@@ -5,7 +5,7 @@ __pycache__/
 
 # Dakota output files
 *.log
-*.dat
+analysis/*.dat
 *.rst
 *.out
 
