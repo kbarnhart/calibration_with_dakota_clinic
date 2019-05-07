@@ -38,7 +38,7 @@ install:
 script:
 - pip install pytest
 - pytest heat/ --doctest-modules
-- cd ../model
+- cd ../analysis
 - source start_01_grid.sh
 - source start_02_nl2sol.sh
 - source start_03_ego.sh
