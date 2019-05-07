@@ -11,15 +11,22 @@ diffusion of heat + fitting Clow paper data.
 # OF = RMSE fit of temperatures
 
 
+A black box model: Start with Dakota input params.in and 
+create results.out.  
 * pre run (fill in the {{values}}
 * run
 * post run, make a plot with plotnine/pandas
+* you get to choose how much you keep
 
 Step 1: Brute force grid search
 
 - introduction to the input file. 
 - introduction to the model driver
-- introduction to the file structure. 
+- introduction to the file structure.
+
+- Run. Look at plot, look at .dat .out file. 
+(FYI, we don't need to keep the file structure) 
+
 
 Step 2: Gradient based method
 
@@ -27,5 +34,16 @@ Step 2: Gradient based method
 
 Step 3: EGO 
 
-If time: on our own we will explore other methods, make the surface temperature model more complex, etc. 
+Discussion:
+* computational cost of Dakota method vs complex model evaluation. 
+    - calculation of numerical gradients
+    - increasing dimension
+    - 
+* RST file, .out file and reproducible research
+
+
+Exploration if time:
+* Explore other methods
+* Add a second component of the objective function.
+* Make the model (of surface temperature history) more complex. 
 
