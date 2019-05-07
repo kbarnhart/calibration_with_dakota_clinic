@@ -39,5 +39,8 @@ script:
 - pytest heat/ --doctest-modules
 - cd ../analysis
 - source start_01_grid.sh
+- cat dakota_01_grid.out
 - source start_02_nl2sol.sh
+- cat dakota_02_nl2sol.out
 - source start_03_ego.sh
+- cat dakota_03_ego.out
