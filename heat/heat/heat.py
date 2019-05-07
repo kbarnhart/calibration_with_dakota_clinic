@@ -39,7 +39,10 @@ def solve_1d(temp, spacing, k=2e3, kappa=1e-6, Qm=0.05, time_step=1.0):
     >>> for i in range(10*365):
     ...     temp = solve_1d(temp, spacing, time_step=24*60*60)
     >>> temp
+    array([0.        , 1.        , 2.        , 3.        , 4.        ,
+           5.        , 5.99999996, 6.99999499, 7.99951939, 8.9690285 ])
 
+    This is good, we expect it to cool.
     """
     Q = np.zeros_like(temp)
     dTdz = np.diff(temp) / spacing[0]
