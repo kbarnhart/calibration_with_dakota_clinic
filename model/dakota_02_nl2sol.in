@@ -1,17 +1,17 @@
 # Dakota input file
 environment
   tabular_data
-    tabular_data_file "dakota_01_grid.dat"
+    tabular_data_file "dakota_02_nl2sol.dat"
 
 method
-  multidim_parameter_study
-  partitions 9 9
+  nl2sol
 
 variables
   continuous_design 2
     descriptors "T" "duration_years"
     lower_bounds -10 20
     upper_bounds 2 120
+    initial_point -10 120
 
 interface
   fork
@@ -24,7 +24,7 @@ interface
     analysis_driver "python driver.py"
 
     work_directory
-      named "MULTIDIM_PARAM/run"
+      named "NL2SOL/run"
       directory_tag
       directory_save
       file_save
@@ -32,5 +32,15 @@ interface
 responses
   calibration_terms 1
   response_descriptors "rmse"
-  no_gradients
+  numerical_gradients
+    method_source dakota
+    interval_type forward
   no_hessians
+
+
+#method
+#efficient_global
+#  gaussian_process surfpack
+#  initial_samples 40
+#  seed 42
+#  output quiet

@@ -1,11 +1,12 @@
 # Dakota input file
 environment
   tabular_data
-    tabular_data_file "dakota_01_grid.dat"
+    tabular_data_file "dakota_03_ego.dat"
 
 method
-  multidim_parameter_study
-  partitions 9 9
+  efficient_global
+    gaussian_process surfpack
+    seed 42
 
 variables
   continuous_design 2
@@ -24,7 +25,7 @@ interface
     analysis_driver "python driver.py"
 
     work_directory
-      named "MULTIDIM_PARAM/run"
+      named "EGO/run"
       directory_tag
       directory_save
       file_save
