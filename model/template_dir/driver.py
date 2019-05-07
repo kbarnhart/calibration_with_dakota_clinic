@@ -11,13 +11,19 @@ from yaml import safe_load
 
 from heat import BmiHeat as Heat
 
-with open("inputs.yml", "r") as f:
+input_template = "input_template.yml"
+inputs = "inputs.yml"
+
+call(["dprepro", sys.argv[1], input_template, inputs])
+call(['rm', input_template])
+
+with open(inputs, "r") as f:
     params = safe_load(f)
 
 T = params["T"]
 duration_years = params["duration_years"]
 
-surface_temperature = T * np.ones(duration_years)
+surface_temperature = T * np.ones(int(np.ceil(duration_years)))
 
 # get data, and fit a line to lower portion and estimate the thermal
 # conductivity k
@@ -74,20 +80,22 @@ h.set_value("temperature", T_init)
 
 # run the model forward in time forced by the surface temperature.
 for i in range(len(surface_temperature)):
+    run_step = min([i + 1, duration_years])
     h.set_value_at_indices("temperature", [0], surface_temperature[i])
-    h.update_until(i * seconds_per_year)
+    h.update_until( run_step * seconds_per_year )
 
 #Make a plot with initial, modeled, and final observations
-plt.figure()
-plt.plot(T_init, model_z)
-plt.plot(df.Temperature, df.Depth)
-plt.plot(h.get_value("temperature"), model_z)
-plt.gca().invert_yaxis()
-plt.ylabel("Depth [m]")
-plt.xlabel("Temperature [C]")
-plt.title("T={T}; Duration={dur}".format(T=T, dur=duration_years))
-plt.legend(["Initial Profile", "Observed", "Modeled"])
-plt.save("example.png")
+# plt.figure()
+# plt.plot(T_init, model_z)
+# plt.plot(df.Temperature, df.Depth)
+# plt.plot(h.get_value("temperature"), model_z)
+# plt.gca().invert_yaxis()
+# plt.ylabel("Depth [m]")
+# plt.xlabel("Temperature [C]")
+# plt.title("T={T}; Duration={dur}".format(T=T, dur=duration_years))
+# plt.legend(["Initial Profile", "Observed", "Modeled"])
+# plt.savefig("example.png")
+
 interp_T = np.interp(df.Depth.values, model_z, h.get_value("temperature"))
 #%%
 # Each of the metrics listed in the Dakota .in file needs to be written to
