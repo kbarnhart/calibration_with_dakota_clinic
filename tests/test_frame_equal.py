@@ -15,4 +15,6 @@ def test_dat_equiv(file):
 
     df_test = pd.read_csv(other_file, engine="python", sep="\s+")
 
-    assert_frame_equal(df.sort_values("%eval_id"), df_test.sort_values("%eval_id"))
+    assert_frame_equal(df.sort_values("%eval_id"),
+                       df_test.sort_values("%eval_id"),
+                       check_less_precise=2)
