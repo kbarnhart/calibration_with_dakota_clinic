@@ -5,8 +5,7 @@ environment
 
 method
   efficient_global
-    gaussian_process surfpack
-    seed 42
+  seed 42
 
 variables
   continuous_design 2
