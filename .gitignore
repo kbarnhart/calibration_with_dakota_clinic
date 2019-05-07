@@ -9,5 +9,10 @@ __pycache__/
 *.rst
 *.out
 
-# Dakota output filestructures. 
-model/GRID_SEARCH/
+# EGO output files
+*.13
+
+# Dakota output filestructures.
+model/MULTIDIM_PARAM/*
+model/NL2SOL/*
+model/EGO/*
