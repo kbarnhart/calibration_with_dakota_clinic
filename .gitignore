@@ -13,6 +13,6 @@ __pycache__/
 *.13
 
 # Dakota output filestructures.
-model/MULTIDIM_PARAM/*
-model/NL2SOL/*
-model/EGO/*
+analysis/MULTIDIM_PARAM/*
+analysis/NL2SOL/*
+analysis/EGO/*
