@@ -1,39 +1,41 @@
-Intro to calibration
+# Intro to calibration
 - what is calibration/optimization/parameter estimation.
-- gradient based vs global
-- complex model vs statistical surogate
 - black box model (parameters > model > outputs)
 - parameters and outputs must be defined.
 
-Our toy model
+- gradient based vs global
+- complex model vs statistical surogate
+- parameter uncertainty or just best parameter set
+
+# Our toy model
 - diffusion of heat + surface temperature history
 - OF based on fitting Clow paper data.
 
-Intro to Dakota 
-- Dakota has more bells and whistles, it is well thought out, and the documentation is quite good. Its just extensive and not an iPhone.  
-- Core activity (assuming you have a black box model set up) is to create and run an input file. 
-- Look at .in file. 
+# Intro to Dakota
+- Dakota has more bells and whistles, it is well thought out, and the
+  documentation is quite good. Its just extensive and not an iPhone.
+- Core activity (assuming you have a black box model set up) is to create and
+  run an input file.
+- Look at .in file.
     * discuss each part
 - Look at template file and driver.py (connect this with black box parts)
-- Run Dakota, create plots, look at output. 
+- Run Dakota, create plots, look at output.
 - Discuss Dakota's file structure
 
-Other methods
-We just did a brute force grid search. 
-Step 2: Gradient based method
-Step 3: EGO 
+# Other methods
+We just did a brute force grid search. This is sort of an optimization.
+Next we will do a gradient based method and a global method.
 
-Discussion:
-* computational cost of Dakota method vs complex model evaluation. 
-    - calculation of numerical gradients
-    - increasing dimension
-    - 
-* RST file, .out file and reproducible research
-* We haven't yet talked about the uncertainty estimates on  parameters, just which  
-parameter is best. That is for another day.  
+# Discussion:
+- computational cost of Dakota method vs complex model evaluation.
+    * calculation of numerical gradients
+    * increasing dimension
+- do you need parameter estimates, or just a best fit point.
+- RST file, .out file and reproducible research
+- We haven't yet talked about the uncertainty estimates on  parameters, just
+  which parameter is best. That is for another day.
 
-Exploration if time:
+# Exploration if time:
 * Explore other methods
 * Add a second component of the objective function.
-* Make the model (of surface temperature history) more complex. 
-
+* Make the model (of surface temperature history) more complex.
