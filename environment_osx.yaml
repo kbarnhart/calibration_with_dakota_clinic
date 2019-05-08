@@ -10,7 +10,7 @@ dependencies:
 - blas
 - lapack
 - perl
-- openmpi
+- openmpi=1.6
 - dakota
 - numpy
 - pandas
