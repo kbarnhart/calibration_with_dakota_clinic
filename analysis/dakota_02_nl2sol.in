@@ -16,7 +16,7 @@ variables
 interface
   fork
     asynchronous
-    evaluation_concurrency 3
+    evaluation_concurrency 1
     parameters_file "params.in"
     results_file "results.out"
     copy_files "template_dir/*"
