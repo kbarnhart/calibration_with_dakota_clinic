@@ -1,0 +1,29 @@
+
+name: dakota_clinic
+channels:
+  - defaults
+  - conda-forge
+  - csdms-stack
+dependencies:
+- python
+- boost-gcc
+- blas
+- lapack
+- perl
+- openmpi
+- dakota
+- numpy
+- pandas
+- matplotlib
+- pytest
+- pyyaml
+- scipy
+- scikit-learn
+- yaml
+- pip
+- spyder
+- plotnine
+- jupyter
+- ipython
+- pip:
+  - bmipy

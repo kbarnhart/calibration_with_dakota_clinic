@@ -5,13 +5,12 @@ channels:
   - conda-forge
   - csdms-stack
 dependencies:
-- python=3.6
-- libgcc
-- boost-gcc
+- boost
 - blas
 - lapack
 - perl
-- openmpi=1.6
+- openmpi
+- python
 - dakota
 - numpy
 - pandas
@@ -24,5 +23,7 @@ dependencies:
 - pip
 - spyder
 - plotnine
+- jupyter
+- ipython
 - pip:
   - bmipy
