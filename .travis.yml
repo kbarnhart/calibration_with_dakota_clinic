@@ -36,12 +36,9 @@ before_install:
 - source activate dakota_clinic
 - conda env export --no-builds
 install:
-- cd heat
 - make install
 script:
 - pip install pytest
-- pytest
-- cd ..
 - pytest
 - cd ../analysis
 - cat dakota_03_ego.log
