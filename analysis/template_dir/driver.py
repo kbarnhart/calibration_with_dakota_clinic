@@ -66,15 +66,17 @@ k = Qm / fit.coef_[0][0]
 kappa = k / (rho * c)
 
 # Create an input file for a 1d Heat model
+nrow = 20
+dz = 10
 file_like = StringIO(
     """
-shape: [20,]
-spacing: [10,]
+shape: [{nrow},]
+spacing: [{dz},]
 kappa: {kappa}
 k: {k}
 Qm: {Qm}
 """.format(
-        kappa=kappa, k=k, Qm=Qm
+        kappa=kappa, k=k, Qm=Qm, nrow=nrow, dz=dz,
     )
 )
 
@@ -91,12 +93,12 @@ h.set_value("temperature", T_init)
 h.timestep = seconds_per_day
 
 # run the model forward in time forced by the surface temperature.
-while h.get_model_time() < duration_years * seconds_per_year:
+while h.get_current_time() < duration_years * seconds_per_year:
     # calculate the time to run until.
-    run_until = min([h.get_model_time() + seconds_per_year,
+    run_until = min([h.get_current_time() + seconds_per_year,
                      duration_years*seconds_per_year])
     # determine the current surface temperature
-    current_time = h.get_model_time()/seconds_per_year
+    current_time = h.get_current_time()/seconds_per_year
     current_surface_temperature = surface_temperature(current_time)
     # set the surface temperature in the model.
     h.set_value_at_indices("temperature", [0], current_surface_temperature)
