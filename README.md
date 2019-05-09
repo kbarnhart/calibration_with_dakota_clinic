@@ -12,8 +12,8 @@ This repository contains resources used in a clinic on using [Dakota](https://da
 
 ## Options for running the examples.
 
-1) Use [this Binder link](https://mybinder.org/v2/gh/kbarnhart/calibration_with_dakota_clinic.git/master).
-2) Use [Hydroshare]().
+1) Use [Binder](https://mybinder.org/v2/gh/kbarnhart/calibration_with_dakota_clinic.git/master).
+2) Use [Hydroshare]() (link not yet active).
 3) Install the repo and Dakota yourself.
 
 ## Install instructions
@@ -32,10 +32,14 @@ Open a terminal and execute the following commands to download the repository, c
 $ git clone https://github.com/kbarnhart/calibration_with_dakota_clinic.git
 $ conda env create -f environment_YOUR_OS_HERE.yml
 $ conda activate dakota_clinic
-$ cd heat/
 $ make install
-$ pytest
 ```
+
+If you want to test your install, type
+```bash
+pytest
+```
+This may take ~15 minutes (you are running all of the experiments we will do in the clinic and testing that they work).
 
 #### Option B: Dakota Binary + conda env
 
@@ -46,17 +50,14 @@ After downloading/installing the Dakota binary, open a terminal and do the follo
 $ git clone https://github.com/kbarnhart/calibration_with_dakota_clinic.git
 $ conda env create -f environment_everything_but_dakota.yml
 $ conda activate dakota_clinic
-$ cd heat/
 $ make install
-$ pytest
 ```
 
 ### Step 2: Open a notebook.
 
-Assuming that the results of `pytest` don't include any failures, go up one directory level and open jupyter notebooks.
+Assuming that the results of `pytest` don't include any failures, open Jupyter Notebooks.
 
 ```bash
-$ cd ..
 $ jupyter notebook
 ```
 
