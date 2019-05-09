@@ -39,12 +39,12 @@ call(['rm', input_template])
 # Load parameters from the yaml formatted input.
 with open(inputs, "r") as f:
     params = safe_load(f)
-    T = params["T"]
+    deltaT = params["deltaT"]
     duration_years = params["duration_years"]
 
-# Create our model for surface  temperature.  Later on in the clinic, consider
-# making this more complicated.
-surface_temperature = interp1d([0, duration_years], [T, T])
+# Create our model for surface  temperature change.  Later on in the clinic,
+# consider making this more complicated.
+surface_temperature_change = interp1d([0, duration_years], [deltaT, deltaT])
 
 # Open a file from Clow (2014, and fit a line to lower portion and estimate the
 # thermal conductivity k
@@ -99,9 +99,11 @@ while h.get_current_time() < duration_years * seconds_per_year:
                      duration_years*seconds_per_year])
     # determine the current surface temperature
     current_time = h.get_current_time()/seconds_per_year
-    current_surface_temperature = surface_temperature(current_time)
+    current_temperature_change = surface_temperature_change(current_time)
     # set the surface temperature in the model.
-    h.set_value_at_indices("temperature", [0], current_surface_temperature)
+    h.set_value_at_indices("temperature",
+                           [0],
+                           T_init[0] + current_temperature_change)
     # run forward in time.
     h.update_until(run_until)
 

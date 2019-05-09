@@ -8,10 +8,10 @@ method
 
 variables
   continuous_design 2
-    descriptors "T" "duration_years"
-    lower_bounds -10 20
-    upper_bounds 2 120
-    initial_point -10 120
+  descriptors "deltaT" "duration_years"
+  lower_bounds 0 20
+  upper_bounds 15 120
+    initial_point 2 120
 
 interface
   fork
