@@ -40,7 +40,7 @@ install:
 script:
 - pip install pytest
 - pytest
-- cd ../analysis
+- cd analysis
 - cat dakota_03_ego.log
 - cat dakota_03_ego.out
 - cat dakota_03_ego.dat
