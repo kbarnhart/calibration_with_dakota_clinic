@@ -41,12 +41,9 @@ install:
 script:
 - pip install pytest
 - pytest
+- cd ..
+- pytest
 - cd ../analysis
-- source start_01_grid.sh
-- source start_02_nl2sol.sh
-- source start_03_ego.sh
 - cat dakota_03_ego.log
 - cat dakota_03_ego.out
 - cat dakota_03_ego.dat
-- cd ..
-- pytest
