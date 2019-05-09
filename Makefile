@@ -62,7 +62,7 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr heat/.pytest_cache
 
 install-heat:
-	python heat/setup.py develop
+	python setup.py develop
 
 install: clean install-heat
 	chmod +x analysis/start_01_grid.sh
