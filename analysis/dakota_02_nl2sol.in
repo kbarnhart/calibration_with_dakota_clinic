@@ -36,11 +36,3 @@ responses
     method_source dakota
     interval_type forward
   no_hessians
-
-
-#method
-#efficient_global
-#  gaussian_process surfpack
-#  initial_samples 40
-#  seed 42
-#  output quiet
