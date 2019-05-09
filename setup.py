@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name="bmi-heat",
+    name="heat",
     author="Katy Barnhart/Eric Hutton",
     author_email="eric.hutton@colorado.edu",
     description="1D heat model",

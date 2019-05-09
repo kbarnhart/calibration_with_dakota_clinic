@@ -1,4 +1,4 @@
-"""Model the diffusion of heat over a 1D plate."""
+"""Model the diffusion of heat over a 1D column."""
 
 from ._version import get_versions
 from .bmi_heat import BmiHeat
