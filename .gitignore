@@ -17,9 +17,5 @@ analysis/MULTIDIM_PARAM/*
 analysis/NL2SOL/*
 analysis/EGO/*
 
-# others
-*.png
-analysis/summary.txt
-
 # notebooks
 .ipynb_checkpoints/*

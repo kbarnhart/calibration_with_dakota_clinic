@@ -8,7 +8,7 @@
 
 ## About
 
-This repository contains resources used in a clinic on using [Dakota](https://dakota.sandia.gov) for calibration taught by @kbarnhart. If you have any questions, comments, or problems, please [make an issue]().
+This repository contains resources used in a clinic on using [Dakota](https://dakota.sandia.gov) for calibration taught by @kbarnhart. If you have any questions, comments, or problems, please [make an issue](https://github.com/kbarnhart/calibration_with_dakota_clinic/issues).
 
 ## Options for running the examples.
 
