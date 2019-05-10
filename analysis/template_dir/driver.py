@@ -52,7 +52,7 @@ surface_temperature_change = interp1d([0, duration_years], [deltaT, deltaT])
 # k has units of [J s**(-1) m**(-1) K**(-1)]
 
 path = "AWU_12AUG07.txt"
-df = pd.read_csv(path, header=22, skip_blank_lines=False, sep="\s+")
+df = pd.read_csv(path, header=22, skip_blank_lines=False, delim_whitespace=True)
 deep_portion = df.Depth > 100
 fit = LinearRegression().fit(
     df.Depth[deep_portion].values.reshape(-1, 1),
