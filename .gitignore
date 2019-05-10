@@ -19,3 +19,5 @@ analysis/EGO/*
 
 # notebooks
 .ipynb_checkpoints/*
+
+figures/black_box\.png
