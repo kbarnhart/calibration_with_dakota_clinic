@@ -1,3 +1,5 @@
+import os
+
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
@@ -53,4 +55,4 @@ for a in [a1, a2, a3, a4, a5]:
 
 ax.axis([0, 30, 0, 7])
 ax.axis("off")
-plt.savefig("black_box.png")
+plt.savefig(os.path.join("figures", "black_box.png"))

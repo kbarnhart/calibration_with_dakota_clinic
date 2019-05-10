@@ -68,3 +68,4 @@ install: clean install-heat
 	chmod +x analysis/start_01_grid.sh
 	chmod +x analysis/start_02_nl2sol.sh
 	chmod +x analysis/start_03_ego.sh
+	python figures/make_black_box_plot.py
