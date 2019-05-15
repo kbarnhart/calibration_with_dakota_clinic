@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/kbarnhart/calibration_with_dakota_clinic.svg?branch=master)](https://travis-ci.com/kbarnhart/calibration_with_dakota_clinic)
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kbarnhart/calibration_with_dakota_clinic.git/master)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kbarnhart/calibration_with_dakota_clinic/master?filepath=Clinic_Notes_and_Tutorial.ipynb)
 
 # Under development
 
@@ -61,4 +61,4 @@ Assuming that the results of `pytest` don't include any failures, open Jupyter N
 $ jupyter notebook
 ```
 
-Click `Clinic Notes and Tutorial.ipynb`.
+Click `Clinic_Notes_and_Tutorial.ipynb`.
