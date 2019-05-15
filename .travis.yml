@@ -39,7 +39,7 @@ install:
 - make install
 script:
 - pip install pytest
-- pytest
+- travis_wait 50 pytest -vvv
 - cd analysis
 - cat dakota_03_ego.log
 - cat dakota_03_ego.out
