@@ -12,7 +12,7 @@ This repository contains resources used in a clinic on using [Dakota](https://da
 
 ## Options for running the examples.
 
-1) Use [Binder](https://mybinder.org/v2/gh/kbarnhart/calibration_with_dakota_clinic.git/master).
+1) Use [Binder](https://mybinder.org/v2/gh/kbarnhart/calibration_with_dakota_clinic/master?filepath=Clinic_Notes_and_Tutorial.ipynb).
 2) Use [Hydroshare]() (link not yet active).
 3) Install the repo and Dakota yourself.
 
