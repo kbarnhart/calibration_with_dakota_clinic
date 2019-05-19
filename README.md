@@ -26,14 +26,24 @@ Make sure you had [git](https://git-scm.com) and the [Anaconda python distributi
 
 This option is only available on Linux and on MacOSX. **It will not work on Windows.**
 
-Open a terminal and execute the following commands to download the repository, create the specified conda environment, and build/test the `heat` module. Note that you'll have to replace `YOUR_OS_HERE` with either `osx` or `linux`.
+(1) Open a terminal and navigate to a folder where you want this folder copied.
+
+Then execute the following commands to download the repository, create the specified conda environment, and build/test the `heat` module. Note that you'll have to replace `YOUR_OS_HERE` with either `osx` or `linux`.
 
 ```bash
 $ git clone https://github.com/kbarnhart/calibration_with_dakota_clinic.git
+$ cd calibration_with_dakota_clinic
 $ conda env create -f environment_YOUR_OS_HERE.yml
 $ conda activate dakota_clinic
 $ make install
 ```
+
+If you've never made an environment with conda before, you might need to use `source` instead of `conda` in the last command. If that command fails, conda will give you an error message that is reasonably helpful. Basically, it will instruct you to run
+
+```bash
+$ conda init <NAME OF SHELL>
+```
+which will make the the `conda activate dakota_clinic` command will work.
 
 If you want to test your install, type
 ```bash
