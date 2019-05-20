@@ -62,10 +62,13 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr heat/.pytest_cache
 
 install-heat:
-	python setup.py develop
+	python setup.py develop --user
 
 install: clean install-heat
 	chmod +x analysis/start_01_grid.sh
 	chmod +x analysis/start_02_nl2sol.sh
 	chmod +x analysis/start_03_ego.sh
+	python figures/make_black_box_plot.py
+
+install-hydroshare: clean install-heat
 	python figures/make_black_box_plot.py
