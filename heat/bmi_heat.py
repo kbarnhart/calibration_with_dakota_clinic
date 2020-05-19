@@ -271,6 +271,14 @@ class BmiHeat(Bmi):
         """Get names of output variables."""
         return self._output_var_names
 
+    def get_input_item_count(self):
+        """Get number of input variables."""
+        return len(self._input_var_names)
+
+    def get_output_item_count(self):
+        """Get number of output variables."""
+        return len(self._output_var_names)
+
     def get_grid_shape(self, grid_id):
         """Number of rows and columns of uniform rectilinear grid."""
         var_name = self._grids[grid_id][0]
@@ -316,6 +324,9 @@ class BmiHeat(Bmi):
 
     def get_grid_face_nodes(self, grid, face_nodes):
         raise NotImplementedError("get_grid_face_nodes")
+
+    def get_grid_face_edges(self, grid, face_nodes):
+        raise NotImplementedError("get_grid_face_edges")
 
     def get_grid_node_count(self, grid):
         raise NotImplementedError("get_grid_node_count")
